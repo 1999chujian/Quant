@@ -40,3 +40,21 @@ if decoded_content:
     print("QR Code Content:", decoded_content)
 else:
     print("QR Code not detected or could not be decoded.")
+
+##
+from PIL import Image
+from pyzbar.pyzbar import decode
+
+# 定义要解码的QR码图片路径
+qr_code_file_path = "C:\Users\13721\Documents\qrcode.png"
+
+# 读取QR码图片并解码
+qr_image = Image.open(qr_code_file_path)
+qr_code_data = decode(qr_image)
+
+# 检查是否成功解码并打印内容
+if qr_code_data:
+    decoded_content = qr_code_data[0].data.decode('utf-8')
+    print("QR Code Content:", decoded_content)
+else:
+    print("QR Code not detected or could not be decoded.")

@@ -58,3 +58,20 @@ if qr_code_data:
     print("QR Code Content:", decoded_content)
 else:
     print("QR Code not detected or could not be decoded.")
+
+###
+def convert_to_lowercase(input_file, output_file):
+    with open(input_file, 'r') as file:
+        content = file.read()
+
+    lowercase_content = content.lower()
+
+    with open(output_file, 'w') as file:
+        file.write(lowercase_content)
+
+# 定义输入和输出文件路径
+input_file_path = "/path/to/input_file.txt"
+output_file_path = "/path/to/output_file.txt"
+
+# 调用函数进行转换
+convert_to_lowercase(input_file_path, output_file_path)

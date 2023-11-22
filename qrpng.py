@@ -79,24 +79,15 @@ convert_to_lowercase(input_file_path, output_file_path)
 ###
 def compare_files(file1, file2):
     with open(file1, 'r') as f1, open(file2, 'r') as f2:
-        lines1 = f1.readlines()
-        lines2 = f2.readlines()
+        content1 = f1.read()
+        content2 = f2.read()
 
-    # 比较行数是否相同
-    if len(lines1) != len(lines2):
-        print("文件行数不一致")
-        return
-
-    # 逐行比较内容
-    for line_num, (line1, line2) in enumerate(zip(lines1, lines2)):
-        line1 = line1.strip()
-        line2 = line2.strip()
-        
-        # 比较行内容是否相同
-        if line1 != line2:
-            print(f"行 {line_num+1}:")
-            print(f"文件1: {line1}")
-            print(f"文件2: {line2}")
+    # 逐个字符比较内容
+    for char_num, (char1, char2) in enumerate(zip(content1, content2)):
+        if char1 != char2:
+            print(f"位置 {char_num+1}:")
+            print(f"文件1: {char1}")
+            print(f"文件2: {char2}")
             print()
 
 # 定义要比较的两个文件路径

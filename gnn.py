@@ -82,3 +82,20 @@ def generate_qr_code(data, file_path):
 base64_data = "Your Base64 code"
 qr_code_file_path = "path/to/save/qr_code.png"
 generate_qr_code(base64_data, qr_code_file_path)
+
+
+#################################
+import qrcode
+from pyzbar.pyzbar import decode
+from PIL import Image 
+def create_qrcode():
+    data = "Here is Qrcode Notes"
+    img = qrcode.make(data)
+    img.save("python.png")
+def read_qrcode():
+    read_img = Image.open("python.png")
+    result = decode(read_img)
+    print(result[0][0].decode())
+create_qrcode()
+read_qrcode()
+

@@ -51,3 +51,34 @@ qr_image = qr.make_image(fill_color="black", back_color="white")
 
 # 保存二维码图像
 qr_image.save('path/to/qrcode.png')
+
+
+#####
+import base64
+
+def convert_to_base64(file_path):
+    with open(file_path, "rb") as file:
+        encoded_string = base64.b64encode(file.read()).decode("utf-8")
+    return encoded_string
+
+file_path = "path/to/your/file.py"
+base64_code = convert_to_base64(file_path)
+
+import qrcode
+
+def generate_qr_code(data, file_path):
+    qr = qrcode.QRCode(
+        version=1,
+        error_correction=qrcode.constants.ERROR_CORRECT_L,
+        box_size=10,
+        border=4,
+    )
+    qr.add_data(data)
+    qr.make(fit=True)
+
+    image = qr.make_image(fill_color="black", back_color="white")
+    image.save(file_path)
+
+base64_data = "Your Base64 code"
+qr_code_file_path = "path/to/save/qr_code.png"
+generate_qr_code(base64_data, qr_code_file_path)

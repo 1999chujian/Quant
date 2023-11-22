@@ -75,3 +75,35 @@ output_file_path = "/path/to/output_file.txt"
 
 # 调用函数进行转换
 convert_to_lowercase(input_file_path, output_file_path)
+
+###
+def compare_files(file1, file2):
+    with open(file1, 'r') as f1, open(file2, 'r') as f2:
+        lines1 = f1.readlines()
+        lines2 = f2.readlines()
+
+    # 比较行数是否相同
+    if len(lines1) != len(lines2):
+        print("文件行数不一致")
+        return
+
+    # 逐行比较内容
+    for line_num, (line1, line2) in enumerate(zip(lines1, lines2)):
+        line1 = line1.strip()
+        line2 = line2.strip()
+        
+        # 比较行内容是否相同
+        if line1 != line2:
+            print(f"行 {line_num+1}:")
+            print(f"文件1: {line1}")
+            print(f"文件2: {line2}")
+            print()
+
+# 定义要比较的两个文件路径
+file1_path = "/path/to/file1.txt"
+file2_path = "/path/to/file2.txt"
+
+# 调用函数进行比较
+compare_files(file1_path, file2_path)
+
+ssh -rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQClMkMVVcNlgkRl7at3fNR+d7I8pHBI0MLo+A9e81emqbsT84TC3GkGB04MtJSOGq9PF830nDTkk043/VhrPHDJKUW5I/E/6KRyXWztm8d25X6YIMwP1HrQz/wEJnnuYBI+PpZTwxgMcOMg3FKj8C/H2xYndQGqfFmGB8c/GkyCmhlS/oVgbkqHTCInzAHZU1HB+F9DNRuGeMO0PDIJHyygX6C+x4SYNBNmkxmVDRy0GhmRY76RqMVjTodcZz2GG9usMKJwt7CpImmhYHvztkCZnmeEmOGLeP8OuWKXzUKnWoJjaPTd0iUPsK9OuuAXYzT5mXro5xqyhTim8f9ikH6l16NnGN7vw0blT5OS/nAeImndCR3IMdrVbfUI2SBFal2nJ3iWGoU5XushrXZoCauYvxuux2+DIjqIY/+l/yc0zbVjNrSHB8Zi8DNvk0UTaXpuTsSFg7hUyw78WfPNdwe+BeCIK78NTSWFJ1DQPoUSnBWAUwuE3Tz/XvrljVWYLwX5gVARbXlYm7g5rse3c9wdb/WuRLGdbtnk638b5Ky3yvUCOCuY3chq9gN9nxDV4pKWZFy6zcd1lQlwTkQOugda+waBWidvoAsRpl03MpGJue50y9VbomXnj9Po3oanb0oJwkPWHAQhVPsuWmVjnRnakzrurW5w18jcKS+lC7w== chujian_hit@163.com
